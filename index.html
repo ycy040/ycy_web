@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yu Chaeyeon | Portfolio</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="main-wrapper">
+    <div class="container">
+        <aside class="left-card">
+          <div class="profile-upper">
+            <div class="img-container">
+              <img src="img/fa-removebg-preview.png" class="profile-img" alt="Profile">
+              <div class="ring"></div>
+            </div>
+            <div class="name">유채연</div>
+          </div>
+    
+          <a href="mailto:email@example.com" class="email-link">
+            <i class="fa-solid fa-envelope"></i> ycy040@gmail.com
+          </a>
+        </aside>
+
+        <main class="right-content">
+            
+            <section id="intro">
+                <h1 class="gradient-text">Hello, I'm<br>Chaeyeon.</h1>
+                <p class="subtitle">Creative Developer based in Korea</p>
+
+                <p class="intro-text">
+                    안녕하세요! 현재 군산대학교 컴퓨터정보공학과 3학년에 재학 중인 유채연입니다.<br>
+                    AI 연구실에서 머신러닝·딥러닝 분야를 학습하며 다양한 프로젝트를 수행하고 있습니다.
+                </p>
+
+                <div class="btn-group">
+                    <button class="btn primary-btn" onclick="window.open('https://github.com/ycy040')">
+                        <i class="fa-brands fa-github"></i> Github
+                    </button>
+                    <button class="btn secondary-btn" onclick="document.getElementById('projects').scrollIntoView({behavior: 'smooth'})">
+                        See Projects
+                    </button>
+                </div>
+            </section>
+
+            <section id="projects">
+                <h2>Selected Projects</h2>
+
+                <div class="project-grid">
+
+                    <div class="project-card" onclick="goToProject('p1')">
+                        <div class="img-wrapper">
+                            <img src="img/project1/thumb.png" alt="Project 1">
+                        </div>
+                        <div class="card-info">
+                            <div class="p-tag">Web / JSP</div>
+                            <div class="p-title">학생 커뮤니티 웹 서비스</div>
+                        </div>
+                    </div>
+
+                    <div class="project-card" onclick="goToProject('p2')">
+                        <div class="img-wrapper">
+                            <img src="img/project2/thumb.png" alt="Project 2">
+                        </div>
+                        <div class="card-info">
+                            <div class="p-tag">AI / Python</div>
+                            <div class="p-title">YOLO 얼굴 인식 도어락</div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <section id="guestbook">
+                <h2>Guestbook <span style="font-size: 0.6em; color: var(--miku-pink);">MongoDB</span></h2>
+
+                <div class="guestbook-form">
+                    <input type="text" id="g-name" placeholder="Name / Nickname" maxlength="10">
+                    <input type="text" id="g-message" placeholder="Leave a message..." maxlength="50">
+                    <button onclick="writeGuestbook()">SEND <i class="fa-solid fa-paper-plane"></i></button>
+                </div>
+
+                <div class="guestbook-list" id="guestbook-list">
+                    <div class="guest-card">
+                        <div class="g-header">
+                            <span class="g-user">System</span>
+                            <span class="g-date">2024.05.21</span>
+                        </div>
+                        <div class="g-msg">환영합니다! 방명록을 남겨주세요.</div>
+                    </div>
+                </div>
+            </section>
+
+            <footer>
+                <p>&copy; 2024 Yu Chaeyeon. All rights reserved.</p>
+            </footer>
+        </main>
+    </div>
+</div>
+
+<div class="modal-bg" id="modal-bg">
+    <div class="modal" id="modal">
+        <button class="close-icon" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
+        <h3 id="modal-title">Project Title</h3>
+        <p id="modal-content">Project details go here...</p>
+    </div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

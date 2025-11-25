@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Details</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="notion-container">
+        <nav class="back-nav">
+            <div class="back-btn" onclick="history.back()">
+                <i class="fa-solid fa-arrow-left"></i> Back to Portfolio
+            </div>
+        </nav>
+
+        <div class="notion-content">
+            <div class="notion-header">
+                <h1 id="p-title">프로젝트 제목 로딩중...</h1>
+                
+                <div class="notion-properties">
+                    <div class="prop-row">
+                        <div class="prop-key"><i class="fa-regular fa-calendar"></i> Date</div>
+                        <div class="prop-value" id="p-date">2024.01</div>
+                    </div>
+                    <div class="prop-row">
+                        <div class="prop-key"><i class="fa-solid fa-tag"></i> Tags</div>
+                        <div class="prop-value" id="p-tags"></div>
+                    </div>
+                    <div class="prop-row">
+                        <div class="prop-key"><i class="fa-brands fa-github"></i> Repo</div>
+                        <div class="prop-value"><a href="#" id="p-link" style="text-decoration: underline;">Link</a></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="notion-body" id="p-content">
+                내용을 불러오는 중입니다...
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        window.onload = function() {
+            loadProjectDetails();
+        }
+    </script>
+</body>
+</html>

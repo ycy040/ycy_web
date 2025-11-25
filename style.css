@@ -1,0 +1,450 @@
+/* ----------------- MIKU THEME VARIABLES ------------------ */
+:root {
+    --bg-color: #121212;          /* 짙은 검정 배경 */
+    --card-bg: #1e1e24;           /* 카드/블록 배경 */
+    --miku-green: #39c5bb;        /* 시그니처 민트 */
+    --miku-pink: #ff2a6d;         /* 포인트 핫핑크 */
+    --text-main: #ffffff;
+    --text-sub: #a0a0a0;          /* 노션의 회색 텍스트 느낌 */
+    --glow-green: 0 0 15px rgba(57, 197, 187, 0.5);
+    --glow-pink: 0 0 15px rgba(255, 42, 109, 0.5);
+    --font-en: 'Poppins', sans-serif;
+    --font-ko: 'Noto Sans KR', sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: var(--font-ko);
+    background-color: var(--bg-color);
+    background-image: radial-gradient(circle at 10% 20%, #1a2a3a 0%, #000000 90%);
+    color: var(--text-main);
+    line-height: 1.6;
+    overflow-x: hidden; /* 가로 스크롤 방지 */
+}
+
+a { text-decoration: none; color: inherit; }
+
+/* ----------------- 메인 레이아웃 (index.html) ------------------ */
+.main-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.container {
+    display: flex;
+    padding: 80px 0;
+    gap: 60px;
+    min-height: 100vh;
+}
+
+/* --- 왼쪽 카드 (Sticky & Dark Theme) --- */
+.left-card {
+    width: 320px;
+    height: fit-content;
+    background: rgba(30, 30, 36, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(57, 197, 187, 0.3);
+    border-radius: 24px;
+    padding: 50px 30px;
+    
+    /* Flexbox를 이용한 완벽한 중앙 정렬 */
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    text-align: center; /* 텍스트 내부 정렬도 중앙으로 */
+    
+    position: sticky;
+    top: 80px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    z-index: 10;
+}
+
+.img-container {
+    position: relative;
+    width: 160px;
+    height: 160px;
+    /* 마진 오토로 확실하게 가운데 위치 잡기 */
+    margin: 0 auto 25px auto; 
+}
+
+.profile-img {
+    width: 100%; height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--miku-green);
+    box-shadow: var(--glow-green);
+    position: relative;
+    z-index: 2;
+}
+
+.ring {
+    position: absolute;
+    top: -10px; left: -10px;
+    width: 180px; height: 180px;
+    border-radius: 50%;
+    border-top: 2px solid var(--miku-pink);
+    border-right: 2px solid transparent;
+    animation: spin 4s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.name {
+    font-family: var(--font-en);
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--text-main);
+    text-shadow: 0 0 10px rgba(255,255,255,0.3);
+    /* 가로폭을 꽉 채워서 text-align: center가 먹히도록 함 */
+    width: 100%; 
+    margin-bottom: 5px;
+}
+
+.status-msg {
+    color: var(--miku-pink);
+    font-size: 14px;
+    font-family: monospace;
+    letter-spacing: 1px;
+    margin: 0;
+}
+
+.email-link {
+    margin-top: 30px;
+    width: 100%;
+    text-align: center;
+    color: var(--miku-green);
+    font-size: 15px;
+    padding: 12px 25px;
+    border-radius: 50px;
+    background: rgba(57, 197, 187, 0.1);
+    border: 1px solid var(--miku-green);
+    transition: all 0.3s ease;
+    font-family: var(--font-en);
+}
+
+.email-link:hover {
+    background: var(--miku-green);
+    color: #121212;
+    box-shadow: var(--glow-green);
+    font-weight: 700;
+}
+
+/* --- 오른쪽 콘텐츠 --- */
+.right-content { flex: 1; }
+
+#intro { margin-bottom: 120px; padding-top: 40px; }
+
+.gradient-text {
+    font-family: var(--font-en);
+    font-size: 85px;
+    font-weight: 800;
+    line-height: 1.1;
+    margin: 0 0 20px 0;
+    background: linear-gradient(to right, var(--miku-green), var(--text-main), var(--miku-pink));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 5px rgba(57, 197, 187, 0.3));
+}
+
+.subtitle { font-size: 24px; color: var(--text-sub); margin-bottom: 40px; font-weight: 300; }
+
+.intro-text {
+    font-size: 17px; color: #cccccc;
+    max-width: 600px; margin-bottom: 50px;
+    line-height: 1.8;
+    border-left: 3px solid var(--miku-pink);
+    padding-left: 20px;
+}
+
+.btn-group { display: flex; gap: 20px; }
+
+.btn {
+    padding: 15px 40px;
+    border-radius: 4px;
+    font-size: 16px; font-weight: 700;
+    cursor: pointer; transition: all 0.3s ease;
+    font-family: var(--font-en); border: none;
+    text-transform: uppercase; letter-spacing: 1px;
+}
+
+.primary-btn { background: var(--miku-green); color: #121212; box-shadow: var(--glow-green); }
+.primary-btn:hover { background: #fff; box-shadow: 0 0 25px var(--miku-green); transform: translateY(-3px); }
+.secondary-btn { background: transparent; color: var(--miku-pink); border: 2px solid var(--miku-pink); }
+.secondary-btn:hover { background: var(--miku-pink); color: white; box-shadow: var(--glow-pink); }
+
+/* --- 프로젝트 그리드 --- */
+#projects h2 { font-family: var(--font-en); font-size: 40px; color: white; margin-bottom: 50px; }
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.project-card {
+    background: var(--card-bg);
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid #333;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--miku-pink);
+    box-shadow: var(--glow-pink);
+}
+
+.img-wrapper { height: 200px; overflow: hidden; border-bottom: 1px solid #333; }
+.img-wrapper img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+.project-card:hover .img-wrapper img { transform: scale(1.1); }
+
+.card-info { padding: 25px; }
+.p-tag { font-size: 12px; font-weight: 700; color: var(--miku-green); margin-bottom: 10px; }
+.p-title { font-size: 20px; font-weight: 700; color: white; }
+
+footer { margin-top: 150px; padding-top: 40px; border-top: 1px solid #333; text-align: center; color: #555; font-size: 14px; }
+
+/* ==========================================================================
+   [NEW] NOTION STYLE PROJECT PAGE CSS (Clean Ver.)
+   ========================================================================== */
+
+.notion-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 0 100px;
+    animation: fadeIn 0.5s ease;
+}
+
+/* 뒤로가기 네비게이션 */
+.back-nav {
+    padding: 20px 0; /* 좌우 패딩 제거 (본문 라인에 맞춤) */
+    max-width: 800px;
+    margin: 0 auto;
+    position: sticky;
+    top: 0;
+    background: var(--bg-color); /* 배경색과 동일하게 */
+    z-index: 100;
+}
+
+.back-btn {
+    color: var(--text-sub);
+    font-size: 14px;
+    cursor: pointer;
+    transition: color 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+.back-btn:hover { color: var(--miku-green); }
+
+/* 본문 영역 */
+.notion-content {
+    padding: 0 20px; /* 모바일 대응 */
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    /* 커버가 없으므로 상단 여백 추가 */
+    padding-top: 40px; 
+}
+
+/* 제목 영역 */
+.notion-header h1 {
+    font-size: 48px;
+    font-weight: 800;
+    margin: 0 0 30px 0; /* 위쪽 여백 제거 */
+    line-height: 1.2;
+    color: var(--text-main);
+}
+
+/* 속성 (Properties) */
+.notion-properties {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 60px; /* 본문과의 간격 */
+    padding-bottom: 30px;
+    border-bottom: 1px solid #333;
+    color: var(--text-sub);
+}
+
+.prop-row {
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+}
+
+.prop-key {
+    width: 120px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #888;
+}
+
+.prop-value {
+    color: var(--text-main);
+}
+
+.tag {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 4px;
+    background: rgba(57, 197, 187, 0.15);
+    color: var(--miku-green);
+    font-size: 13px;
+    margin-right: 6px;
+}
+
+/* 본문 스타일 */
+.notion-body {
+    font-size: 17px;
+    line-height: 1.8;
+    color: #e0e0e0;
+}
+
+.notion-body h2 {
+    margin-top: 60px;
+    font-size: 28px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 12px;
+    color: var(--miku-green);
+    font-weight: 700;
+}
+
+.notion-body h3 {
+    margin-top: 40px;
+    font-size: 22px;
+    color: var(--miku-pink);
+}
+
+.notion-body p { margin-bottom: 24px; }
+
+.notion-body img {
+    width: 100%;
+    border-radius: 8px;
+    margin: 30px 0;
+    border: 1px solid #333;
+}
+
+.notion-body ul {
+    padding-left: 20px;
+    margin-bottom: 30px;
+}
+
+.notion-body li { margin-bottom: 10px; }
+
+/* 반응형 */
+@media (max-width: 900px) {
+    .notion-header h1 { font-size: 36px; }
+    .notion-content { padding-top: 20px; }
+    .back-nav { padding: 20px; } /* 모바일에서는 좌우 패딩 필요 */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ----------------- 방명록 (Guestbook) ------------------ */
+#guestbook {
+    padding-top: 50px;
+    max-width: 800px;
+}
+
+/* 입력 폼 스타일 */
+.guestbook-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+    background: rgba(30, 30, 36, 0.6);
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid #333;
+}
+
+.guestbook-form input {
+    background: #121212;
+    border: 1px solid #444;
+    color: white;
+    padding: 12px;
+    border-radius: 6px;
+    font-family: var(--font-ko);
+    outline: none;
+}
+
+.guestbook-form input:focus {
+    border-color: var(--miku-green);
+    box-shadow: 0 0 5px rgba(57, 197, 187, 0.3);
+}
+
+#g-name { width: 150px; }
+#g-message { flex: 1; }
+
+.guestbook-form button {
+    background: var(--miku-pink);
+    color: white;
+    border: none;
+    padding: 0 25px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    font-family: var(--font-en);
+    transition: 0.3s;
+}
+
+.guestbook-form button:hover {
+    background: #ff5c8d;
+    box-shadow: 0 0 15px rgba(255, 42, 109, 0.5);
+}
+
+/* 방명록 리스트 스타일 */
+.guestbook-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.guest-card {
+    background: rgba(255, 255, 255, 0.03);
+    border-left: 3px solid var(--miku-green);
+    padding: 15px 20px;
+    border-radius: 0 8px 8px 0;
+    transition: 0.2s;
+}
+
+.guest-card:hover {
+    background: rgba(57, 197, 187, 0.1);
+}
+
+.g-header {
+    font-size: 12px;
+    margin-bottom: 5px;
+    color: #666;
+    display: flex;
+    justify-content: space-between;
+}
+
+.g-user {
+    color: var(--miku-green);
+    font-weight: 700;
+}
+
+.g-msg {
+    font-size: 15px;
+    color: #eee;
+}
+
+/* 모바일 대응 */
+@media (max-width: 600px) {
+    .guestbook-form { flex-direction: column; }
+    #g-name, #g-message { width: 100%; }
+    .guestbook-form button { padding: 12px; }
+}
