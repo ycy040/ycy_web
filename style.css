@@ -448,3 +448,77 @@ footer { margin-top: 150px; padding-top: 40px; border-top: 1px solid #333; text-
     #g-name, #g-message { width: 100%; }
     .guestbook-form button { padding: 12px; }
 }
+
+/* --- 프로젝트 작성 폼 --- */
+.form-group { margin-bottom: 20px; }
+.form-group label { display: block; color: var(--miku-green); font-weight: bold; margin-bottom: 8px; }
+.form-group input, .form-group textarea {
+    width: 100%; padding: 12px;
+    background: #222; border: 1px solid #444;
+    color: white; border-radius: 6px;
+    font-family: var(--font-ko);
+}
+.form-group input:focus, .form-group textarea:focus {
+    border-color: var(--miku-pink); outline: none;
+}
+/* 추가(+) 카드 스타일 */
+.add-card { border: 2px dashed #444; background: transparent; }
+.add-card:hover { border-color: var(--miku-green); color: var(--miku-green); }
+
+/* --- 심플한 관리자 버튼 스타일 (수정/삭제) --- */
+.simple-btn {
+    background: transparent;      /* 배경 투명 */
+    border: 1px solid #444;       /* 얇은 회색 테두리 */
+    color: #888;                  /* 글자색 회색 (눈에 덜 띄게) */
+    padding: 6px 12px;            /* 크기 줄임 */
+    font-size: 13px;              /* 글자 크기 줄임 */
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-en);
+}
+
+/* Edit 버튼 마우스 올렸을 때 (초록색) */
+.simple-btn.edit:hover {
+    border-color: var(--miku-green);
+    color: var(--miku-green);
+    background: rgba(57, 197, 187, 0.1);
+}
+
+/* Delete 버튼 마우스 올렸을 때 (빨간색/핑크색) */
+.simple-btn.delete:hover {
+    border-color: var(--miku-pink);
+    color: var(--miku-pink);
+    background: rgba(255, 42, 109, 0.1);
+}
+
+/* --- 심플한 관리자 버튼 (수정/삭제) --- */
+.simple-btn {
+    background: transparent;
+    border: 1px solid #444;
+    color: #888;
+    padding: 6px 12px;
+    font-size: 13px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-en);
+}
+
+.simple-btn.edit:hover {
+    border-color: var(--miku-green);
+    color: var(--miku-green);
+    background: rgba(57, 197, 187, 0.1);
+}
+
+.simple-btn.delete:hover {
+    border-color: var(--miku-pink);
+    color: var(--miku-pink);
+    background: rgba(255, 42, 109, 0.1);
+}

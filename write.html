@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Editor</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="notion-container">
+        <nav class="back-nav">
+            <div class="back-btn" onclick="history.back()">
+                <i class="fa-solid fa-arrow-left"></i> Cancel
+            </div>
+        </nav>
+
+        <div class="notion-content" style="padding-top: 50px;">
+            <h1 id="form-title">New Project</h1>
+            
+            <form id="project-form" onsubmit="handleSaveProject(event)">
+                <div class="form-group">
+                    <label>Project Code (ID)</label>
+                    <input type="text" id="p_code" placeholder="예: p3 (고유해야 함)" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Title</label>
+                    <input type="text" id="title" placeholder="프로젝트 제목" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Period</label>
+                    <input type="text" id="period" placeholder="예: 2024.01 - 2024.06">
+                </div>
+
+                <div class="form-group">
+                    <label>Tags (콤마로 구분)</label>
+                    <input type="text" id="tags" placeholder="예: Python, YOLO, IoT">
+                </div>
+
+                <div class="form-group">
+                    <label>GitHub URL</label>
+                    <input type="text" id="github_url" placeholder="https://github.com/...">
+                </div>
+
+                <div class="form-group">
+                    <label>Image URL</label>
+                    <input type="text" id="img_url" placeholder="img/project1/thumb.png">
+                </div>
+
+                <div class="form-group">
+                    <label>Image URL</label>
+                    <input type="text" id="img_url" placeholder="img/project1/thumb.png">
+                </div>
+
+                <div class="form-group">
+                    <label>Video URL (YouTube Embed Link)</label>
+                    <input type="text" id="video_url" placeholder="예: https://www.youtube.com/embed/XXXXXX">
+                </div>
+                
+                <div class="form-group">
+                    <label>Content (HTML 가능)</label>
+                    <textarea id="content" rows="10" placeholder="<h2>소개</h2><p>내용...</p>"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Content (HTML 가능)</label>
+                    <textarea id="content" rows="10" placeholder="<h2>소개</h2><p>내용...</p>"></textarea>
+                </div>
+
+                <button type="submit" class="btn primary-btn" style="width: 100%; margin-top: 20px;">
+                    SAVE PROJECT
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // 페이지 로드 시 수정 모드인지 확인
+        checkEditMode();
+    </script>
+</body>
+</html>
